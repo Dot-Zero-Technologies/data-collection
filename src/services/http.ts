@@ -1,5 +1,6 @@
 import express from 'express'
 import APIRouter from './../routers/api.js'
+import { configuration } from './configuration.js'
 
 const app = express()
 
@@ -18,7 +19,7 @@ app.use('/api', APIRouter)
 
 // Set routes.
 app.get('/', (req, res) => {
-  res.render('pages/index', { query: req.query })
+  res.render('pages/index', { query: req.query, config: configuration })
 })
 
 // Start server.
