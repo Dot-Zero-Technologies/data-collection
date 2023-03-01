@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
   res.render('pages/index', { query: req.query, config: configuration })
 })
 
+app.get('/success', (req, res) => {
+  res.render('pages/success', { config: configuration })
+})
+
 // Start server.
 app.listen(3000, () => {
   console.log('Server is running on port 3000.')
