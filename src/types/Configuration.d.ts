@@ -5,6 +5,17 @@ export interface Input {
   required: boolean
 }
 
+export interface Hooks {
+  onSubmit: Hook[]
+}
+
+export interface Hook {
+  method: string
+  url: string
+  headers: { [key: string]: string }
+  body: any
+}
+
 export interface Configuration {
   schema: Input[]
   title: string
@@ -12,4 +23,5 @@ export interface Configuration {
   submit: string
   success: string
   error: string
+  hooks: Hooks
 }
