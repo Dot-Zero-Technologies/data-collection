@@ -13,19 +13,16 @@
       <form action="/api/submit" method="post" enctype="application/x-www-form-urlencoded">
         <div class="messages">
           <% if (query.error == 1) { %>
-          <div class="error"><%= config.error %></div>
+            <div class="error"><%= config.error %></div>
           <% } else if (query.error != undefined) { %>
-          <div class="error"><%= query.error %></div>
+            <div class="error"><%= query.error %></div>
           <% } %>
 
           <div class="description"><%= config.description %></div>
         </div>
 
         <% config.schema.forEach((field) => { %>
-        <div class="form-control">
-          <label for="<%= field.name %>"><%= field.label %></label>
-          <input type="<%= field.type %>" name="<%= field.name %>" id="<%= field.name %>" <%= field.required ? 'required' : '' %> />
-        </div>
+          <%- include('../partials/formControl.ejs', { field })%>
         <% }) %>
 
         <div class="form-control">

@@ -1,8 +1,14 @@
+export interface Attribute {
+  name: string
+  value: string
+}
+
 export interface Input {
   type: string
   name: string
   label: string
   required: boolean
+  attributes: Attribute[]
 }
 
 export interface Hooks {
