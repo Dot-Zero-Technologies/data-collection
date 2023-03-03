@@ -16,12 +16,29 @@ export interface Hook {
   body: any
 }
 
+export interface ExistsLimit {
+  type: 'exists'
+  field: string
+  message: string
+}
+
+export interface MaxLimit {
+  type: 'max'
+  field: string
+  value: number
+  message: string
+}
+
+export type Limit = ExistsLimit | MaxLimit
+
 export interface Configuration {
   schema: Input[]
   title: string
   description: string
   submit: string
+  submitionInfo: string
   success: string
   error: string
+  limits: Limit[]
   hooks: Hooks
 }

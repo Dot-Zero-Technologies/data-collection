@@ -23,7 +23,7 @@ h1 {
 
 main {
   width: 20rem;
-  max-width: 100%;
+  max-width: calc(100% - 2rem);
 }
 
 .messages {
@@ -31,7 +31,13 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   margin: 1rem 0;
+}
+
+.error {
+  color: #a00;
+  font-weight: 500;
 }
 
 form {
@@ -72,4 +78,10 @@ form {
   color: #222;
   font-weight: 500;
   cursor: pointer;
+}
+
+.mini-info {
+  font-size: 0.7rem;
+  color: #000;
+  margin-top: 0.5rem;
 }
