@@ -10,7 +10,6 @@ export const submitRoute = async (req: Request, res: Response) => {
     // Check limits.
     const limitsResults = checkLimits(data)
     if (limitsResults !== true) {
-      console.log(`Limits results: ${limitsResults}`)
       return res.redirect(`/?error=${encodeURIComponent(limitsResults)}`)
     }
 
