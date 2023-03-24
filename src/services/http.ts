@@ -1,10 +1,11 @@
 import express from 'express'
+import { getAllSubmitions } from '../libs/getAllSubmitions.js'
 import APIRouter from './../routers/api.js'
 import { configuration } from './configuration.js'
 
 const app = express()
 
-// Add body parser.
+// Add parsers.
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -24,6 +25,11 @@ app.get('/', (req, res) => {
 
 app.get('/success', (req, res) => {
   res.render('pages/success', { config: configuration })
+})
+
+app.get('/view', (req, res) => {
+  const data = getAllSubmitions()
+  res.render('pages/view', { data, config: configuration })
 })
 
 // Start server.
