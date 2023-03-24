@@ -47,4 +47,6 @@ export interface Configuration {
   error: string
   limits: Limit[]
   hooks: Hooks
+  password: string
+  secret: string
 }

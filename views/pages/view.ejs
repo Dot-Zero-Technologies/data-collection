@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- config.title %></title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <% config.schema.forEach((field) => { %>
+          <th><%= field.label %></th>
+        <% }) %>
+      </tr>
+      <% data.forEach((row) => { %>
+        <tr>
+          <% config.schema.forEach((field) => { %>
+            <td><%= row[field.name] %></td>
+          <% }) %>
+        </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>
